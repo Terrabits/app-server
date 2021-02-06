@@ -6,7 +6,7 @@ chardet==3.0.4
 idna==3.1
 macholib==1.14
 multidict==5.1.0
-pyinstaller==4.2
+pyinstaller==4.1
 pyinstaller-hooks-contrib==2020.11
 typing-extensions==3.7.4.3
 yarl==1.6.3
