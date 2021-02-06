@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <img src="images/rs-logo.png" />
+  <p id="id-string"></p>
+  <button onclick="queryId()">Query *IDN?</button>
+  <script src="javascript/serial-socket.js"></script>
+  <script>
+    async function queryId() {
+      // open websocket
+      let socket = new SerialSocket();
+      await socket.open();
+
+      // query id string
+      let idString = await socket.query('*IDN?\n');
+
+      // update paragraph
+      let paragraph = document.getElementById('id-string');
+      paragraph.textContent = idString
+    }
+  </script>
+</body>
+</html>
