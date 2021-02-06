@@ -21,7 +21,13 @@ if __name__ == '__main__':
 
     # open browser?
     if args.open_browser:
-        webbrowser.open_new_tab(f'http://{args.host}:{args.port}')
+        if args.host == '0.0.0.0':
+            webbrowser.open_new_tab(f'http://localhost:{args.port}')
+        else:
+            webbrowser.open_new_tab(f'http://{host}:{args.port}')
+
+        host = 'localhost' if args.host == '0.0.0.0' else args.host
+
 
     # start
     web.run_app(app, host=args.host, port=args.port)
