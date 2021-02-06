@@ -5,22 +5,34 @@
 </head>
 
 <body>
-  <img src="images/rs-logo.png" />
-  <p id="id-string"></p>
-  <button onclick="queryId()">Query *IDN?</button>
+  <!-- "gui" -->
+  <div>
+    <img src="images/rs-logo.png" />
+  </div>
+  <div>
+    <form>
+      <label for="id-string">ID String:</label>
+      <input id="id-string" style="width: 350px;"/>
+    </form>
+  </div>
+  <div>
+    <button onclick="queryId()">Query *IDN?</button>
+  </div>
+
+  <!-- code -->
   <script src="javascript/serial-socket.js"></script>
   <script>
     async function queryId() {
       // open websocket
-      let socket = new SerialSocket();
-      await socket.open();
+      let instr = new SerialSocket();
+      await instr.open();
 
       // query id string
-      let idString = await socket.query('*IDN?\n');
+      let idString = await instr.query('*IDN?\n');
 
-      // update paragraph
-      let paragraph = document.getElementById('id-string');
-      paragraph.textContent = idString
+      // update text
+      let input = document.getElementById('id-string');
+      input.value = idString;
     }
   </script>
 </body>
