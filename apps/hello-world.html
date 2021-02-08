@@ -7,16 +7,14 @@
 <body>
   <!-- "gui" -->
   <div>
-    <img src="images/rs-logo.png" style="width: 100px;"/>
+    <img src="images/rs-logo.png" style="width: 50px;"/>
   </div>
   <div>
-    <form>
+    <form action="javascript:void(0);">
       <label for="id-string">ID String:</label>
-      <input id="id-string" style="width: 350px;"/>
+      <input id="id-string" type="text" style="width: 350px;"/>
+      <input type="button" onclick="queryId()" value="*IDN?"/>
     </form>
-  </div>
-  <div>
-    <button onclick="queryId()">Query *IDN?</button>
   </div>
 
   <!-- code -->
